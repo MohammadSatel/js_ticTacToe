@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button id="b1" style="position: absolute;">Waga</button>
+    <script>
+        function test() {
+            let temp =Math.round( Math.random() * window.innerHeight )
+            // console.log(temp)
+            b1.style.top =`${(temp) % window.innerHeight}px`
+            b1.style.left =`${temp *3 % window.innerWidth}px`
+            // console.log(`${temp* 25 -56 % window.innerHeight}px`);
+        }
+        setInterval(test, 1000)
+    </script>
+</body>
+
+</html>

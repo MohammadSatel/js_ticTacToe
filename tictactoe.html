@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TicTacToe</title>
+</head>
+
+<body>
+    <div id="divTurn">
+
+    </div>
+    <div onclick="play(event)">
+        <button id="b1">-</button>
+        <button id="b2">-</button>
+        <button id="b3">-</button><br>
+        <button id="b4">-</button>
+        <button id="b5">-</button>
+        <button id="b6">-</button><br>
+        <button id="b7">-</button>
+        <button id="b8">-</button>
+        <button id="b9">-</button>
+    </div>
+    <script>
+        let xTurn = true
+        function play(e) {
+            if (e.target.innerText == "-") {
+                if (xTurn) {
+                    e.target.innerText = "X"
+                    divTurn.innerHTML =`now it's  O turn`
+                }
+                else {
+                    e.target.innerText = "O"
+                    divTurn.innerHTML =`now it's  X turn`
+                }
+                xTurn = !xTurn
+            }
+            checkWin()
+        }
+
+        function checkWin(){
+            console.log("checkWin -not implemented yet!!");
+        }
+    </script>
+</body>
+
+</html>

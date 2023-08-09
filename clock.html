@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="display" style="padding: 100px;background-color: rgb(0, 255, 255);width: 20px;display: inline;">Hello</div>
+    <div id="displayB" style="padding: 100px;background-color: rgb(0, 255, 255);width: 20px;">Hello</div>
+    <div id="displayC" style="padding: 100px;background-color: rgb(0, 255, 255);width: 20px;">Hello</div>
+    
+    <button onclick="stopStart()">Stop</button>
+    <script>
+        let counter = 0
+        let working = true
+        let worker = setInterval(doSomthing, 100)
+
+        function doSomthing() {
+            let time = new Date();
+            let hour = time.getHours();
+            let min = time.getMinutes();
+            let sec = time.getSeconds();
+            display.innerHTML =`
+            <span style="color: rgb(${counter * 12 % 255}, ${counter * 21 % 255} , ${counter + 70 % 255});">${hour}</span>:
+            <span style="color: rgb(${counter * 2 % 255}, ${counter * 21 % 255} , ${counter * 9 % 255});">${min}</span>:
+            <span style="color: rgb(${counter * 7 % 255}, ${counter * 2 % 255} , ${counter * 3 - 7 % 255});">${sec}</span>`
+            // display.style.backgroundColor = `rgb(${counter * 12 % 255}, ${counter * 21 % 255} , ${counter + 70 % 255})`
+            // displayB.style.backgroundColor = `rgb(${counter * 2 % 255}, ${counter * 21 % 255} , ${counter * 9 % 255})`
+            // displayC.style.backgroundColor = `rgb(${counter * 7 % 255}, ${counter * 2 % 255} , ${counter * 3 - 7 % 255})`
+            console.log(`rgb(${counter * 12 % 255}, ${counter * 21 % 255} , ${counter + 70 % 255})`);
+            counter++
+            // console.log(counter);
+        }
+
+
+        function stopStart() {
+            if (working) {
+                clearInterval(worker) //stop working
+            } else {
+                worker = setInterval(doSomthing, 1000)//start working
+            }
+            working = !working
+        }
+    </script>
+</body>
+
+</html>
